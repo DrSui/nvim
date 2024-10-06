@@ -1,0 +1,19 @@
+lsp
+linter
+rose pine
+undotree
+packer
+harpoon
+fuzzy finder
+mason
+treesitter
+telescope
+nvim-tree
+statusline and tabufline
+nvimcmp
+nvim autopairs
+auto-indent
+
+snippets?
+multiple tabs?
+nerdtree?

@@ -1,0 +1,23 @@
+
+vim.keymap.set("n", "<leader>dm", "<cmd>lua require('neotest').run.run()<cr>", {desc = "Test Method"} )
+vim.keymap.set("n", "<leader>dM", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", {desc = "Test Method DAP" })
+vim.keymap.set("n", "<leader>df", "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", {desc = "Test Class" })
+vim.keymap.set("n", "<leader>dF", "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", {desc = "Test Class DAP" })
+vim.keymap.set("n", "<leader>dS", "<cmd>lua require('neotest').summary.toggle()<cr>", {desc = "Test Summary" })
+
+require("neotest").setup({
+    adapters = {
+        require("neotest-python")({
+            dap = {
+                justMyCode = false,
+                console = "integratedConsole",
+            },
+            args = { "--log-level", "DEBUG", "--quiet" },
+            runner = "pytest"
+        }),
+        require("neotest-plenary"),
+        require("neotest-vim-test")({
+             ignore_file_types ={ "python", "vim", "lua" },
+            }),
+        },
+})
