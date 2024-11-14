@@ -1,3 +1,2 @@
 vim.notify = require("notify")
-vim.notify("Happy Hacking!", "info")
-
+vim.notify({"I came. I saw. I conquered.  - Julius Caesar"}, "info", {title="cooking..."})

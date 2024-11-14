@@ -15,6 +15,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+      "vhyrro/luarocks.nvim",
+      priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+      config = true,
+    },
+    {
         'L3MON4D3/LuaSnip',
         dependencies = {
             'saadparwaiz1/cmp_luasnip',
@@ -33,12 +38,10 @@ require("lazy").setup({
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
-        "nvim-treesitter/nvim-treesitter"
       }
     },
     {
       'Wansmer/treesj',
-      dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
      },
     {
         'hrsh7th/nvim-cmp',
@@ -72,7 +75,7 @@ require("lazy").setup({
         end
     },
 
-    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    { 'nvim-treesitter/nvim-treesitter', version="v0.9.1", run = ':TSUpdate' },
 
     "nvim-lua/plenary.nvim", -- Make sure plenary is loaded
 
